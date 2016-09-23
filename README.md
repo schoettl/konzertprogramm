@@ -15,3 +15,12 @@ Das Skript macht dann folgendes:
  - Aus den Dateien eine große PDF machen
  - Eine Liste mit den Titeln der Stücke machen
  - Ein Konzertprogramm als PDF speichern
+
+-----------
+
+```
+find . -iname '*.pdf' | sort | perl merge.pl
+
+# convert images to pdfs
+find . -iname '*.jpg' -or -iname '*.jpeg' | parallel 'convert {} {.}.pdf && mv {} old_image_{/}'
+```
