@@ -58,7 +58,7 @@ main() {
 
     mv "$list" "$list.bak"
 
-    "$PROGDIR"/filenames.sh < "$list.bak" > "$list"
+    "$PROGDIR"/find_pdfs.sh < "$list.bak" > "$list"
 
     (( $? == 0 )) || \
         exitWithError "Bitte oben angegebene Probleme beseitigen und dann nochmal probieren."

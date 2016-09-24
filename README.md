@@ -3,11 +3,11 @@ Konzertprogramm
 
 Ablauf:
 
- - Ordner für ein neues Konzert erzeugen: "2016-09-23 Das Spektakel"
+ - Ordner für ein neues Konzert erzeugen: `2016-09-23 Das Spektakel`
  - In diesen Ordner wechseln
- - Textdatei "noten.txt" erstellen und (Teile der) Namen der Stücke reinschreiben -- jedes in eine Zeile.
+ - Textdatei `noten.txt` erstellen und (Teile der) Namen der Stücke reinschreiben -- jedes in eine Zeile.
  - Git Bash öffnen
- - In der Git Bash das Programm ausführen: ../programm_erstellen.sh
+ - In der Git Bash das Programm ausführen: `../programm_erstellen.sh`
 
 Das Skript macht dann folgendes:
 
