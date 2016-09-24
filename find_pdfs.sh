@@ -44,7 +44,7 @@ main() {
             declare tempFile
             tempFile=$(mktemp)
 
-            find "$SHEET_MUSIC_DIR" -iregex ".*/.*${line// /.*}.*\\.pdf" > "$tempFile"
+            find "$SHEET_MUSIC_DIR" -iregex ".*/.*${line// /.*}.*" -iname '*.pdf' > "$tempFile"
 
             printOutput "$line" "$tempFile" || errorFlag=1
         fi
