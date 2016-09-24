@@ -8,7 +8,6 @@ EOF
 
 readonly PROGNAME=$(basename "$0")
 readonly PROGDIR=$(dirname "$(readlink -m "$0")")
-readonly -a ARGS=("$@")
 
 # $1: error message
 exitWithError() {
