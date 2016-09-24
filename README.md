@@ -26,7 +26,7 @@ Das geht mit folgenden Befehlen (unter Linux):
 
 ```
 # convert images to pdfs
-find . -iname '*.jpg' -or -iname '*.jpeg' | parallel 'convert {} {.}.pdf && mv {} old_image_{/}'
+find . -iname '*.jpg' -or -iname '*.jpeg' | parallel 'convert -page A4 -compress A4 {} {.}.pdf && mv {} old_image_{/}'
 
 # find pdfs that end with a number (to be merged to one pdf)
 find . -iname '*.pdf' | sort | grep -iE '[[:digit:]]\.pdf$' > files-with-number.txt
@@ -36,3 +36,13 @@ cat files-with-number.txt | sed -r 's/[-_ ]*[[:digit:]]+\.pdf$//I' | uniq | para
 
 # remove files from files-with-number.txt
 ```
+
+----------
+
+Weitere Pläne: Spezieller Ordner mit zwei Batch-Dateien (.bat):
+
+ - `bild-zu-pdf.bat` &ndash; `libreoffice --headless --convert-to pdf *.jpg *.jpeg`
+ - `pdfs-zusammenfuehren.bat` &ndash; `sejda-console -f *.pdf -o common-name.pdf`
+
+Die eine wandelt alle Bilder (JPEG) in PDFs um.
+Die andere hängt alle PDFs aneinander und macht eine große PDF daraus.
