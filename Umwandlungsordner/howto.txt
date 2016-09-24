@@ -1,0 +1,3 @@
+- Dateien hier rein legen
+- Dann eine der Batchdateien starten
+- Danach die eigenen Dateien wieder entfernen

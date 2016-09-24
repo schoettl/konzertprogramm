@@ -41,10 +41,12 @@ cat files-with-number.txt | sed -r 's/[-_ ]*[[:digit:]]+\.pdf$//I' | uniq | para
 
 ----------
 
-Weitere Pläne: Spezieller Ordner mit zwei Batch-Dateien (`.bat`):
+Weitere Pläne: Spezieller Ordner `Umwandlung` mit zwei Batch-Dateien (`.bat`):
 
  - `bild-zu-pdf.bat` &ndash; `libreoffice --headless --convert-to pdf *.jpg *.jpeg`
  - `pdfs-zusammenfuehren.bat` &ndash; `sejda-console -f *.pdf -o common-name.pdf`
 
 Die eine wandelt alle Bilder (JPEG) in PDFs um.
 Die andere hängt alle PDFs aneinander und macht eine große PDF daraus.
+
+Noch nicht getestet.
