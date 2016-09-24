@@ -19,8 +19,14 @@ Das Skript macht dann folgendes:
 -----------
 
 ```
-find . -iname '*.pdf' | sort | perl merge.pl
-
 # convert images to pdfs
 find . -iname '*.jpg' -or -iname '*.jpeg' | parallel 'convert {} {.}.pdf && mv {} old_image_{/}'
+
+# find pdfs that end with a number (to be merged to one pdf)
+find . -iname '*.pdf' | sort | grep -iE '[[:digit:]]\.pdf$' > files-with-number.txt
+
+# merge pdfs with numbers
+cat files-with-number.txt | sed -r 's/[_ ]*[[:digit:]]+\.pdf$//I' | uniq | parallel 'pdftk {}* cat output {}.pdf'
+
+# remove files from files-with-number.txt
 ```
