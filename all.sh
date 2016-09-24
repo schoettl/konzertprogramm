@@ -32,12 +32,33 @@ printProgram() {
     )
 }
 
+createLinks() {
+    mkdir -p noten
+    rm -rf noten/*
+    parallel 'ln -s {} noten/{/}'
+}
+
+# $1: resulting pdf file name
+# $*: single pdf files
+createPdf() {
+    declare result=$1
+    shift
+    pdftk "$@" cat output "$result"
+}
+
 main() {
     declare list=noten.txt
 
     mv "$list" "$list.bak"
 
     "$PROGDIR"/filenames.sh < "$list.bak" > "$list"
+
+    (( $? == 0 )) || \
+        exitWithError "Bitte oben angegebene Probleme beseitigen und dann nochmal probieren."
+
+    createLinks < "$list"
+
+    createPdf noten.pdf noten/*
 
     printTitles < "$list" > titel.txt
 
