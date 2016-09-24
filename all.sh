@@ -35,7 +35,13 @@ printProgram() {
 createLinks() {
     mkdir -p noten
     rm -rf noten/*
-    parallel 'ln -s {} noten/{/}'
+    declare counter=1
+    while read -r f; do
+        declare number
+        number=$(printf "%02d" $counter)
+        ln -s "$f" noten/"${number}_${f##*/}"
+        (( counter++ ))
+    done
 }
 
 # $1: resulting pdf file name
