@@ -50,6 +50,7 @@ createPdf() {
     declare result=$1
     shift
     pdftk "$@" cat output "$result"
+    # sejda-console -f "$@" -o "$result"
 }
 
 main() {
