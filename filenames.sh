@@ -18,12 +18,12 @@ printOutput() {
     n=$(wc -l < "$tempFile")
     if (( n == 0 )); then
         echo "$searchTerm"
-        echo "nicht gefunden: $searchTerm" >&2
+        echo "* nicht gefunden: $searchTerm" >&2
     elif (( n == 1 )); then
         cat "$tempFile"
     else
         echo "$searchTerm"
-        echo "mehrfach gefunden: $searchTerm" >&2
+        echo "* mehrfach gefunden: $searchTerm" >&2
         cat "$tempFile" >&2
     fi
 }
