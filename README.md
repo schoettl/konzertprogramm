@@ -3,20 +3,26 @@ Konzertprogramm
 
 Ablauf:
 
- - Ordner für jedes Konzert erzeugen: "2016-09-23 Das Spektakel"
+ - Ordner für ein neues Konzert erzeugen: "2016-09-23 Das Spektakel"
  - In diesen Ordner wechseln
+ - Textdatei "noten.txt" erstellen und (Teile der) Namen der Stücke reinschreiben -- jedes in eine Zeile.
  - Git Bash öffnen
- - Textdatei öffnen und (Teile der) Namen der Stücke reinschreiben -- jedes in eine Zeile.
  - In der Git Bash das Programm ausführen: ../programm_erstellen.sh
 
 Das Skript macht dann folgendes:
 
  - Textdatei zeilenweise durchgehen und die Dateinamen der Stücke raussuchen
- - Aus den Dateien eine große PDF machen
+ - Aus den Dateien eine große PDF erzeugen, die die Stücke in der korrekten Reihenfolge enthält
  - Eine Liste mit den Titeln der Stücke machen
- - Ein Konzertprogramm als PDF speichern
+ - Ein Konzertprogramm als Textdatei machen
+ - (Ein Konzertprogramm als PDF speichern, wenn ich ein gutes LaTeX Template hätte)
 
 -----------
+
+Vorher müssen aber alle Noten als PDF vorliegen (keine Bilder).
+Außerdem darf es pro Stück nur ein PDF geben, d.h. Einzelseiten müssen
+zusammengefasst werden.
+Das geht mit folgenden Befehlen (unter Linux):
 
 ```
 # convert images to pdfs
