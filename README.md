@@ -19,6 +19,17 @@ Das Skript macht dann folgendes:
  - (Ein Konzertprogramm als PDF speichern, wenn ich ein gutes LaTeX Template hätte)
  - (Eine Konzertprogramm-Vorlage (z.B. LibreOffice, Word) kopieren und evtl. öffnen)
 
+Voraussetzungen:
+
+ - [Git Bash](https://git-scm.com/downloads) muss installiert sein
+
+Installation:
+
+ - Git Bash unter "Eigene Dateien" öffnen
+ - Diesen Befehl eingeben: `git clone git@github.com:schoettl/konzertprogramm.git`
+ - Mit diesem Befehl in den neuen Ordner wechseln: `cd konzertprogramm` (der Ordner darf umbenannt werden)
+ - In diesem neuen Ordner können ab dann wie oben angegeben Ordner für Konzerte erstellt werden
+
 -----------
 
 Vorher müssen aber alle Noten als PDF vorliegen (keine Bilder).
@@ -50,3 +61,11 @@ Die eine wandelt alle Bilder (JPEG) in PDFs um.
 Die andere hängt alle PDFs aneinander und macht eine große PDF daraus.
 
 Noch nicht getestet.
+
+Voraussetzung:
+
+ - [LibreOffice](https://de.libreoffice.org/) muss installiert sein
+ - [Java 1.8](https://www.java.com/de/download/) oder neuer muss installiert sein (ist es wahrscheinlich schon)
+ - [Sejda Console](http://www.sejda.org/) muss installiert sein &ndash; wie man das am Besten macht weiß ich noch nicht
+
+Alle diese Programme sind kostenlos!
