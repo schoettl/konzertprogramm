@@ -2,7 +2,7 @@
 
 printUsage() {
     cat <<EOF
-usage: $PROGNAME <arg>
+usage: $PROGNAME
 EOF
 }
 
@@ -54,6 +54,8 @@ createPdf() {
 }
 
 main() {
+    (( $# > 0 )) && { printUsage; exit 1; }
+
     declare list=noten.txt
 
     mv "$list" "$list.bak"
