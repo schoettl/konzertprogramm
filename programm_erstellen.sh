@@ -17,6 +17,8 @@ exitWithError() {
 
 printTitles() {
     sed -e 's/.*\///' -e 's/\.pdf$//i' -e 's/_/ /g'
+    # Using PDF meta information:
+    # pdftk <filename> dump_data | awk 'p{$1=""; gsub(/^ +/, ""); print; exit}; /^InfoKey: Title$/{p=1}'
 }
 
 # $1: file with music titles
