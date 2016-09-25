@@ -63,7 +63,7 @@ main() {
     "$PROGDIR"/find_pdfs.sh < "$list.bak" > "$list"
 
     (( $? == 0 )) || \
-        exitWithError "Bitte oben angegebene Probleme beseitigen und dann nochmal probieren."
+        exitWithError "\nBitte oben angegebene Probleme beseitigen und dann nochmal probieren."
 
     createLinks < "$list"
 
