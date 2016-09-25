@@ -22,6 +22,8 @@ Das Skript macht dann folgendes:
 Voraussetzungen:
 
  - [Git Bash](https://git-scm.com/downloads) muss installiert sein
+ - Abhängig vom Betriebssystem muss [pdftk](http://www.lagotzki.de/pdftk/)
+   oder [Sejda Console](http://www.sejda.org/) (siehe unten) installiert sein.
 
 Installation:
 
