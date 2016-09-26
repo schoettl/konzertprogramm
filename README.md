@@ -38,6 +38,7 @@ Es gibt einen speziellen Ordner `Umwandlung` mit zwei Batch-Dateien (`.bat`):
 Für den Umwandlungsordner:
 
  - [LibreOffice](https://de.libreoffice.org/) muss installiert sein
+ - Java und Sejda Console müssen installiert sein
 
 Alle diese Programme sind kostenlos!
 
@@ -45,7 +46,7 @@ Alle diese Programme sind kostenlos!
 
  - Git Bash unter "Eigene Dateien" öffnen
  - Diesen Befehl eingeben: `git clone git@github.com:schoettl/konzertprogramm.git`
- - Mit diesem Befehl in den neuen Ordner wechseln: `cd konzertprogramm` (der Ordner darf umbenannt werden)
+ - Mit diesem Befehl in den neuen Ordner wechseln: `cd konzertprogramm` (der Ordner darf auch umbenannt werden)
  - In diesem neuen Ordner können ab dann wie oben angegeben Ordner für Konzerte erstellt werden
 
 -----------
