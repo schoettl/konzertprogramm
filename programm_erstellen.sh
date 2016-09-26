@@ -31,7 +31,7 @@ printProgram() {
     read -r date name
     echo "$name"
     echo
-    LC_ALL=de_DE.utf8 date -d "$date" +'%a, %d.%m.%y'
+    LC_ALL=de_DE.utf8 date -d "$date" +'%A, %d.%m.%Y'
     # echo "$date"
     echo
     cat "$1"

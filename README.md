@@ -1,7 +1,7 @@
 Konzertprogramm
 ===============
 
-Ablauf:
+## So wird's gemacht
 
  - Ordner für ein neues Konzert erzeugen: `2016-09-23 Das Spektakel`
  - In diesen Ordner wechseln
@@ -19,13 +19,29 @@ Das Skript macht dann folgendes:
  - (Ein Konzertprogramm als PDF speichern, wenn ich ein gutes LaTeX Template hätte)
  - (Eine Konzertprogramm-Vorlage (z.B. LibreOffice, Word) kopieren und evtl. öffnen)
 
-Voraussetzungen:
+## Der Umwandlungsordner
+
+Es gibt einen speziellen Ordner `Umwandlung` mit zwei Batch-Dateien (`.bat`):
+
+ - Umwandeln von Bildern zu PDFs
+ - Zusammenführen von mehreren PDFs zu einer großen
+
+(Noch nicht getestet.)
+
+## Voraussetzungen
 
  - [Git Bash](https://git-scm.com/downloads) muss installiert sein
- - Abhängig vom Betriebssystem muss [pdftk](http://www.lagotzki.de/pdftk/)
-   oder [Sejda Console](http://www.sejda.org/) (siehe unten) installiert sein.
+ - [Java 1.8](https://www.java.com/de/download/) oder neuer muss installiert sein (ist es wahrscheinlich schon)
+ - [Sejda Console](http://www.sejda.org/) muss installiert sein &ndash; wie man das am Besten macht weiß ich noch nicht
+ - Statt Java und Sejda Console kann unter Linux auch [pdftk](http://www.lagotzki.de/pdftk/) installiert sein
 
-Installation:
+Für den Umwandlungsordner:
+
+ - [LibreOffice](https://de.libreoffice.org/) muss installiert sein
+
+Alle diese Programme sind kostenlos!
+
+## Installation
 
  - Git Bash unter "Eigene Dateien" öffnen
  - Diesen Befehl eingeben: `git clone git@github.com:schoettl/konzertprogramm.git`
@@ -33,6 +49,8 @@ Installation:
  - In diesem neuen Ordner können ab dann wie oben angegeben Ordner für Konzerte erstellt werden
 
 -----------
+
+## Notenarchiv vorbereiten
 
 Vorher müssen aber alle Noten als PDF vorliegen (keine Bilder).
 Außerdem darf es pro Stück nur ein PDF geben, d.h. Einzelseiten müssen
@@ -52,23 +70,3 @@ cat files-with-number.txt | sed -r 's/[-_ ]*[[:digit:]]+\.pdf$//I' | uniq | para
 
 # remove files from files-with-number.txt
 ```
-
-----------
-
-Weitere Pläne: Spezieller Ordner `Umwandlung` mit zwei Batch-Dateien (`.bat`):
-
- - `bild-zu-pdf.bat` &ndash; `libreoffice --headless --convert-to pdf *.jpg *.jpeg`
- - `pdfs-zusammenfuehren.bat` &ndash; `sejda-console -f *.pdf -o common-name.pdf`
-
-Die eine wandelt alle Bilder (JPEG) in PDFs um.
-Die andere hängt alle PDFs aneinander und macht eine große PDF daraus.
-
-Noch nicht getestet.
-
-Voraussetzung:
-
- - [LibreOffice](https://de.libreoffice.org/) muss installiert sein
- - [Java 1.8](https://www.java.com/de/download/) oder neuer muss installiert sein (ist es wahrscheinlich schon)
- - [Sejda Console](http://www.sejda.org/) muss installiert sein &ndash; wie man das am Besten macht weiß ich noch nicht
-
-Alle diese Programme sind kostenlos!
