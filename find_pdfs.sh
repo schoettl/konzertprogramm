@@ -32,7 +32,7 @@ printOutput() {
 }
 
 main() {
-    (( $# != 1 )) && { printUsage; exit 1; }
+    (( $# == 1 )) || { printUsage; exit 1; }
     declare sheetMusicDir=$1
 
     declare errorFlag

@@ -6,7 +6,7 @@ install:
 	$(eval TMP := $(shell mktemp))
 	wget -O $(TMP) $(SEJDA_DOWNLOAD_URL)
 	unzip $(TMP)
-	mv sejda-console-* sejda-console
+	mv sejda-console-* sejda
 
 clean:
 	rm -rf "2016-09-24 Das Spektakel"/*

@@ -46,6 +46,8 @@ createLinks() {
         declare number
         number=$(printf "%02d" $counter)
         ln -s "$f" noten/"${number}_${f##*/}"
+        # TODO implement special case for windows:
+        # http://stackoverflow.com/questions/18641864/git-bash-shell-fails-to-create-symbolic-links
         (( counter++ ))
     done
 }
@@ -65,7 +67,7 @@ createPdf() {
 }
 
 main() {
-    (( $# > 0 )) && { printUsage; exit 1; }
+    (( $# == 0 )) || { printUsage; exit 1; }
 
     declare list=noten.txt
 
