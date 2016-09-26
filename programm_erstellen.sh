@@ -19,6 +19,10 @@ exitWithError() {
     exit 1
 }
 
+isWindows() {
+    [[ -n "$WINDIR" ]]
+}
+
 printTitles() {
     sed -e 's/.*\///' -e 's/\.pdf$//i' -e 's/_/ /g'
     # Using PDF meta information:
@@ -42,12 +46,16 @@ createLinks() {
     mkdir -p noten
     rm -rf noten/*
     declare counter=1
-    while read -r f; do
+    while read -r target; do
         declare number
         number=$(printf "%02d" $counter)
-        ln -s "$f" noten/"${number}_${f##*/}"
-        # TODO implement special case for windows:
-        # http://stackoverflow.com/questions/18641864/git-bash-shell-fails-to-create-symbolic-links
+        declare linkName=noten/${number}_${target##*/}
+        if isWindows; then
+            # http://stackoverflow.com/questions/18641864/git-bash-shell-fails-to-create-symbolic-links
+            cmd <<< "mklink /D \"${linkName%/}\" \"${target%/}\"" > /dev/null
+        else
+            ln -s "$target" "$linkName"
+        fi
         (( counter++ ))
     done
 }
