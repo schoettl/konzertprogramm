@@ -4,11 +4,9 @@
 
 printUsage() {
     cat <<EOF
-usage: $PROGNAME < in-file.txt > out-file.txt
+usage: $PROGNAME SHEET_MUSIC_DIR < in-file.txt > out-file.txt
 EOF
 }
-
-readonly SHEET_MUSIC_DIR=~/Dropbox/Noten
 
 # $1: search term
 # $2: temp file with results of find
@@ -34,7 +32,8 @@ printOutput() {
 }
 
 main() {
-    (( $# > 0 )) && { printUsage; exit 1; }
+    (( $# != 1 )) && { printUsage; exit 1; }
+    declare sheetMusicDir=$1
 
     declare errorFlag
     while read -r line; do
@@ -44,7 +43,7 @@ main() {
             declare tempFile
             tempFile=$(mktemp)
 
-            find "$SHEET_MUSIC_DIR" -iregex ".*/.*${line// /.*}.*" -iname '*.pdf' > "$tempFile"
+            find "$sheetMusicDir" -iregex ".*${line// /.*}.*" -iname '*.pdf' > "$tempFile"
 
             printOutput "$line" "$tempFile" || errorFlag=1
         fi

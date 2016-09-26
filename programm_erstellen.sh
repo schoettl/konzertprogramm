@@ -9,6 +9,10 @@ EOF
 readonly PROGNAME=$(basename "$0")
 readonly PROGDIR=$(dirname "$(readlink -m "$0")")
 
+# Einstellungen:
+readonly SHEET_MUSIC_DIR=~/tmp/Noten/
+readonly SEJDA_CONSOLE=$PROGDIR/sejda/bin/sejda-console.bat
+
 # $1: error message
 exitWithError() {
     echo "$1" >&2
@@ -51,8 +55,13 @@ createLinks() {
 createPdf() {
     declare result=$1
     shift
-    pdftk "$@" cat output "$result"
-    # sejda-console -f "$@" -o "$result"
+    if pdftk --version &> /dev/null; then
+        pdftk "$@" cat output "$result"
+    elif "$SEJDA_CONSOLE" --version &> /dev/null; then
+        "$SEJDA_CONSOLE" -f "$@" -o "$result"
+    else
+        echo "Fehler: Die PDF-Datei konnte nicht erstellt werden weil das PDF-Programm nicht richtig installiert ist." >&2
+    fi
 }
 
 main() {
@@ -62,10 +71,13 @@ main() {
 
     mv "$list" "$list.bak"
 
-    "$PROGDIR"/find_pdfs.sh < "$list.bak" > "$list"
+    "$PROGDIR"/find_pdfs.sh "$SHEET_MUSIC_DIR" < "$list.bak" > "$list"
 
     (( $? == 0 )) || \
-        exitWithError "\nBitte oben angegebene Probleme beseitigen und dann nochmal probieren."
+        {
+            echo >&2
+            exitWithError "Bitte oben angegebene Probleme beseitigen und dann nochmal probieren."
+        }
 
     createLinks < "$list"
 
