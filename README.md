@@ -41,7 +41,8 @@ Das geht mit folgenden Befehlen (unter Linux):
 
 ```
 # convert images to pdfs
-find . -iname '*.jpg' -or -iname '*.jpeg' | parallel 'convert -page A4 {} {.}.pdf && mv {} old_image_{/}'
+mkdir -p old_images
+find . -iname '*.jpg' -or -iname '*.jpeg' - or iname '*.png' | parallel 'convert -page A4 {} {.}.pdf && mv {} old_images/{/}'
 
 # find pdfs that end with a number (to be merged to one pdf)
 find . -iname '*.pdf' | sort | grep -iE '[[:digit:]]\.pdf$' > files-with-number.txt
