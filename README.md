@@ -47,6 +47,7 @@ Alle diese Programme sind kostenlos!
  - Git Bash unter "Eigene Dateien" öffnen
  - Diesen Befehl eingeben: `git clone git@github.com:schoettl/konzertprogramm.git`
  - Mit diesem Befehl in den neuen Ordner wechseln: `cd konzertprogramm` (der Ordner darf auch umbenannt werden)
+ - Mit diesem Befehl Sejda Console installieren: `make install`
  - In diesem neuen Ordner können ab dann wie oben angegeben Ordner für Konzerte erstellt werden
 
 -----------
