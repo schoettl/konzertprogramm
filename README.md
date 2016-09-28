@@ -12,7 +12,7 @@ Konzertprogramm
 Das Skript macht dann folgendes:
 
  - Textdatei zeilenweise durchgehen und die Dateinamen der Stücke raussuchen
- - Aus den Dateien eine große PDF erzeugen, die die Stücke in der korrekten Reihenfolge enthält
+ - **Aus den Dateien eine große PDF erzeugen**, die die Stücke in der korrekten Reihenfolge enthält
  - Eine Liste mit den Titeln der Stücke machen
  - Einen Ordner mit Verknüpfungen zu den einzelnen Noten anlegen
  - Ein Konzertprogramm als Textdatei machen
@@ -62,7 +62,7 @@ Das geht mit folgenden Befehlen (unter Linux):
 ```
 # convert images to pdfs
 mkdir -p old_images
-find . -iname '*.jpg' -or -iname '*.jpeg' - or iname '*.png' | parallel 'convert -page A4 {} {.}.pdf && mv {} old_images/{/}'
+find . -iname '*.jpg' -or -iname '*.jpeg' -or -iname '*.png' | parallel 'convert -page A4 {} {.}.pdf && mv {} old_images/{/}'
 
 # find pdfs that end with a number (to be merged to one pdf)
 find . -iname '*.pdf' | sort | grep -iE '[[:digit:]]\.pdf$' > files-with-number.txt
