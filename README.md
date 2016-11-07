@@ -32,7 +32,7 @@ Es gibt einen speziellen Ordner `Umwandlung` mit zwei Batch-Dateien (`.bat`):
 
  - [Git Bash](https://git-scm.com/downloads) muss installiert sein
  - [Java 1.8](https://www.java.com/de/download/) oder neuer muss installiert sein (ist es wahrscheinlich schon)
- - [Sejda Console](http://www.sejda.org/) muss installiert sein &ndash; wie man das am Besten macht weiß ich noch nicht
+ - [Sejda Console](http://www.sejda.org/) muss installiert sein
  - Statt Java und Sejda Console kann unter Linux auch [pdftk](http://www.lagotzki.de/pdftk/) installiert sein
 
 Für den Umwandlungsordner:
